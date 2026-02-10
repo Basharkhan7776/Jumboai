@@ -1,65 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image" href="/Logo.jpg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Primary Meta Tags -->
-    <title>Jumbo AI - Transform Your Business with AI Solutions</title>
-    <meta name="title" content="Jumbo AI - Transform Your Business with AI Solutions" />
-    <meta name="description" content="Cutting-edge artificial intelligence solutions to help businesses innovate, automate, and scale. Expert AI consulting, custom machine learning, and intelligent automation services." />
-    <meta name="keywords" content="AI consulting, machine learning, artificial intelligence, business automation, AI solutions, data analytics, intelligent automation, AI integration" />
-    <meta name="author" content="Jumbo AI" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jumboai.tech" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jumboai.tech/" />
-    <meta property="og:title" content="Jumbo AI - Transform Your Business with AI Solutions" />
-    <meta property="og:description" content="Cutting-edge artificial intelligence solutions to help businesses innovate, automate, and scale. Expert AI consulting, custom machine learning, and intelligent automation services." />
-    <meta property="og:image" content="https://jumboai.tech/og-image.jpg" />
-    <meta property="og:site_name" content="Jumbo AI" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://jumboai.tech/" />
-    <meta property="twitter:title" content="Jumbo AI - Transform Your Business with AI Solutions" />
-    <meta property="twitter:description" content="Cutting-edge artificial intelligence solutions to help businesses innovate, automate, and scale. Expert AI consulting, custom machine learning, and intelligent automation services." />
-    <meta property="twitter:image" content="https://jumboai.tech/twitter-image.jpg" />
-
-    <!-- Additional SEO -->
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Jumbo AI" />
-
-    <!-- Structured Data for Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Jumbo AI",
-      "url": "https://jumboai.tech",
-      "logo": "https://jumboai.tech/Logo.jpg",
-      "description": "AI consulting and machine learning solutions provider",
-      "email": "hello@jumboai.tech",
-      "telephone": "+1 (555) 123-4567",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 AI Innovation Drive",
-        "addressLocality": "Tech Valley",
-        "addressRegion": "CA",
-        "postalCode": "94000",
-        "addressCountry": "US"
-      },
-      "sameAs": []
-    }
+    <title>JumboAI | Transform Your Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #F8FAFC;
+        overflow-x: hidden;
+        cursor: none; /* Hide default cursor for custom implementation */
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      
+      .cursor-hover-active {
+        mix-blend-mode: difference;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              jumbo: {
+                black: '#0A0A0A',
+                saffron: '#FF9933',
+                saffronDark: '#FF5E00',
+                green: '#138808',
+                greenNeon: '#00FF9D',
+                offWhite: '#F8FAFC'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
     </script>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://esm.sh/three@^0.182.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@^9.5.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "@calcom/embed-react": "https://esm.sh/@calcom/embed-react@^1.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
