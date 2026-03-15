@@ -362,4 +362,4 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   );
 };
 
-export default GlassSurface;
+export default React.memo(GlassSurface);

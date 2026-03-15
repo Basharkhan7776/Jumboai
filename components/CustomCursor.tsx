@@ -51,4 +51,4 @@ const CustomCursor: React.FC = () => {
   );
 };
 
-export default CustomCursor;
+export default React.memo(CustomCursor);

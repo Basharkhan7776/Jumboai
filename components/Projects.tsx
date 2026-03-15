@@ -48,7 +48,7 @@ const projects = [
   }
 ];
 
-const ProjectCard = ({
+const ProjectCard = React.memo(({
   project,
   index,
   scrollYProgress,
@@ -177,7 +177,7 @@ const ProjectCard = ({
       </div>
     </motion.div>
   );
-};
+});
 
 const Projects: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -209,4 +209,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default React.memo(Projects);

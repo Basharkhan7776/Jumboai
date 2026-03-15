@@ -8,7 +8,7 @@ import BreathingBlob from './BreathingBlob';
 
 // --- Micro-Interaction Components ---
 
-const GlobeVisual = () => {
+const GlobeVisual = React.memo(() => {
   const Mesh = () => {
     const mesh = useRef<THREE.Mesh>(null);
     
@@ -36,9 +36,9 @@ const GlobeVisual = () => {
       </Canvas>
     </div>
   );
-};
+});
 
-const RoiGraph = () => {
+const RoiGraph = React.memo(() => {
   return (
     // Removed opacity-30, now fully visible with gradient handling transparency
     <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-0">
@@ -67,10 +67,10 @@ const RoiGraph = () => {
          />
        </svg>
     </div>
-  )
-}
+  );
+});
 
-const EfficiencyChart = () => {
+const EfficiencyChart = React.memo(() => {
   return (
     <div className="absolute right-6 top-1/2 -translate-y-1/2 w-20 h-20 pointer-events-none z-0">
        <svg viewBox="0 0 36 36" className="w-full h-full rotate-[-90deg]">
@@ -94,10 +94,10 @@ const EfficiencyChart = () => {
          />
        </svg>
     </div>
-  )
-}
+  );
+});
 
-const CostBarChart = () => {
+const CostBarChart = React.memo(() => {
   const bars = [0.2, 0.5, 0.3, 0.8, 0.4, 0.6, 0.3];
   return (
     // Increased opacity from 0.2 to 0.5
@@ -112,8 +112,8 @@ const CostBarChart = () => {
         />
       ))}
     </div>
-  )
-}
+  );
+});
 
 // --- Data Configuration ---
 
@@ -156,7 +156,7 @@ const cardData = [
   }
 ];
 
-const SpotlightCard: React.FC<{ children: React.ReactNode; className?: string; visual?: React.ReactNode }> = ({ children, className, visual }) => {
+const SpotlightCard: React.FC<{ children: React.ReactNode; className?: string; visual?: React.ReactNode }> = React.memo(({ children, className, visual }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -195,7 +195,7 @@ const SpotlightCard: React.FC<{ children: React.ReactNode; className?: string; v
       <div className="relative h-full z-20 flex flex-col justify-between">{children}</div>
     </motion.div>
   );
-};
+});
 
 const BentoGrid: React.FC = () => {
   return (
@@ -239,4 +239,4 @@ const BentoGrid: React.FC = () => {
   );
 };
 
-export default BentoGrid;
+export default React.memo(BentoGrid);

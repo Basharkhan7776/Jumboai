@@ -34,4 +34,4 @@ const BreathingBlob: React.FC<BreathingBlobProps> = ({
   );
 };
 
-export default BreathingBlob;
+export default React.memo(BreathingBlob);

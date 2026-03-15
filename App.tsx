@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import BentoGrid from './components/BentoGrid';
-import Projects from './components/Projects';
-import Testimonials from './components/Testimonials';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 
+const BentoGrid = lazy(() => import('./components/BentoGrid'));
+const Projects = lazy(() => import('./components/Projects'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const ContactForm = lazy(() => import('./components/ContactForm'));
+const Footer = lazy(() => import('./components/Footer'));
+
 function App() {
-  // Add smooth scroll behavior via CSS or simple React logic if needed
-  // For this SPA, native scroll with our physics-based components works well
-  
   useEffect(() => {
     // Add marquee animation configuration to Tailwind dynamically if not present
     const style = document.createElement('style');
@@ -38,13 +36,17 @@ function App() {
       
       <main>
         <Hero />
-        <BentoGrid />
-        <Projects />
-        <Testimonials />
-        <ContactForm />
+        <Suspense fallback={<div className="min-h-screen bg-jumbo-offWhite" />}>
+          <BentoGrid />
+          <Projects />
+          <Testimonials />
+          <ContactForm />
+        </Suspense>
       </main>
       
-      <Footer />
+      <Suspense fallback={<div className="h-64 bg-jumbo-black" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
