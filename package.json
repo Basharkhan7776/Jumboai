@@ -9,15 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "three": "^0.182.0",
+    "@calcom/embed-react": "^1.4.1",
+    "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.34.0",
+    "lucide-react": "^0.563.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "lucide-react": "^0.563.0",
+    "react-router-dom": "6",
     "tailwind-merge": "^3.4.0",
-    "framer-motion": "^12.34.0",
-    "clsx": "^2.1.1",
-    "@calcom/embed-react": "^1.4.1"
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

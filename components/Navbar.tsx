@@ -40,11 +40,6 @@ const Navbar: React.FC = () => {
         width="auto"
         height="auto"
         borderRadius={50}
-        brightness={98}
-        opacity={0.6}
-        blur={12}
-        borderWidth={1}
-        mixBlendMode="overlay"
       >
         <motion.div 
            layout="position"
@@ -59,8 +54,8 @@ const Navbar: React.FC = () => {
             }}
             data-cursor="hover"
           >
-            <div className="w-8 h-8 bg-jumbo-black rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xs">J</span>
+            <div className="w-8 h-8 bg-jumbo-black rounded-lg flex items-center justify-center overflow-hidden p-1.5">
+              <img src="/logo.svg" alt="JumboAI Logo" className="w-full h-full object-contain invert" />
             </div>
             <motion.span 
               layout="position"

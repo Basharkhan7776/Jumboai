@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JumboAI | Transform Your Business</title>
+    <title>JumboAI | Transform Your Business with AI</title>
+    <meta name="description" content="JumboAI provides enterprise-grade AI solutions, autonomous agents, and digital transformation services to scale your operations." />
+    <link rel="canonical" href="https://jumboai.in/" />
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jumboai.in/" />
+    <meta property="og:title" content="JumboAI | Transform Your Business with AI" />
+    <meta property="og:description" content="JumboAI provides enterprise-grade AI solutions, autonomous agents, and digital transformation services to scale your operations." />
+    <meta property="og:image" content="https://jumboai.in/logo.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +46,15 @@
       .cursor-hover-active {
         mix-blend-mode: difference;
       }
+
+      /* Utility for hiding scrollbar in specific elements */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
     <script>
       tailwind.config = {
@@ -41,10 +63,7 @@
             colors: {
               jumbo: {
                 black: '#0A0A0A',
-                saffron: '#FF9933',
-                saffronDark: '#FF5E00',
-                green: '#138808',
-                greenNeon: '#00FF9D',
+                blue: '#1E3A8A', // Dark Blue Accent
                 offWhite: '#F8FAFC'
               }
             },
@@ -66,6 +85,7 @@
     "react/": "https://esm.sh/react@^19.2.4/",
     "react": "https://esm.sh/react@^19.2.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@6",
     "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
     "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
     "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
@@ -74,7 +94,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>

@@ -57,27 +57,32 @@ void main() {
                                    0.02 * tOffset) +
                            sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
 
-  // Indian Tricolor Gradient Logic
-  float gradAngle = -0.5; 
-  vec2 gradUv = rotateUvs(vUv - 0.5, gradAngle) + 0.5;
-
-  // Colors
-  vec3 saffron = vec3(1.0, 0.6, 0.2);
-  vec3 white = vec3(0.98, 0.98, 0.99); // Ultra bright white
-  vec3 green = vec3(0.07, 0.53, 0.03);
-
-  // Gradient Mixing
-  // Expanded color areas: Green up to 0.35, Saffron starts at 0.65
-  // This gives more "room" to colors while keeping the center white.
+  // Blob Gradient Logic
+  vec2 center = vec2(0.5, 0.5);
   
-  float greenToWhite = smoothstep(0.15, 0.35, gradUv.y);
-  float whiteToSaffron = smoothstep(0.65, 0.85, gradUv.y);
-
-  vec3 flagColor = mix(green, white, greenToWhite);
-  flagColor = mix(flagColor, saffron, whiteToSaffron);
+  // Animate center slightly
+  center.x += sin(uTime * 0.3) * 0.1;
+  center.y += cos(uTime * 0.2) * 0.1;
+  
+  float dist = distance(vUv, center);
+  
+  // Inhale/Exhale animation
+  float breathe = sin(uTime * 0.8) * 0.5 + 0.5; // 0.0 to 1.0
+  float radius = 0.4 + breathe * 0.15; // Pulse radius
+  
+  // Soft radial gradient
+  float blob = smoothstep(radius + 0.4, radius - 0.2, dist);
+  
+  // Colors
+  vec3 white = vec3(0.98, 0.98, 1.0); // Cool white
+  vec3 blue = vec3(0.117, 0.227, 0.541); // Dark Blue
+  
+  // Mix white and blue based on blob gradient
+  // Keep it subtle by clamping the max blue mix
+  vec3 baseColor = mix(white, blue, blob * 0.4); 
 
   // Combine Pattern and Color
-  vec3 finalColor = flagColor * pattern;
+  vec3 finalColor = baseColor * pattern;
 
   // Apply minimal noise
   vec4 col = vec4(finalColor, 1.0) - rnd / 20.0 * uNoiseIntensity;

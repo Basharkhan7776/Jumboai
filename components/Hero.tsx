@@ -1,9 +1,8 @@
-import React, { Suspense, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import SilkPlane from './SilkShader';
+import Beams from './Beams';
 import MagneticButton from './MagneticButton';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { getCalApi } from "@calcom/embed-react";
 
 const Hero: React.FC = () => {
@@ -18,14 +17,21 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-jumbo-offWhite">
+    <section className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-white via-white to-blue-50">
       {/* WebGL Layer */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 1.5], fov: 75 }}>
-          <Suspense fallback={null}>
-            <SilkPlane />
-          </Suspense>
-        </Canvas>
+        <Beams
+          beamWidth={3}
+          beamHeight={30}
+          beamNumber={20}
+          lightColor="#ffffff"
+          speed={6}
+          noiseIntensity={1.75}
+          scale={0.2}
+          rotation={30}
+          backgroundColor="transparent"
+          beamColor="#93C5FD"
+        />
       </div>
 
       {/* Content Layer */}
@@ -63,7 +69,7 @@ const Hero: React.FC = () => {
           className="mt-12 flex flex-col md:flex-row items-center gap-6 pointer-events-auto"
         >
           <MagneticButton 
-            className="!px-10 !py-5 text-lg shadow-2xl shadow-jumbo-saffron/20"
+            className="!px-10 !py-5 text-lg shadow-2xl shadow-jumbo-blue/20"
             data-cal-namespace="30-minute-consultation"
             data-cal-link="bashar-khan/30-minute-consultation"
             data-cal-config='{"layout":"month_view"}'
@@ -79,7 +85,7 @@ const Hero: React.FC = () => {
          <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-2 h-24 bg-gradient-to-b from-jumbo-greenNeon to-transparent rounded-full opacity-50"
+            className="w-2 h-24 bg-gradient-to-b from-jumbo-blue to-transparent rounded-full opacity-50"
          />
       </div>
     </section>

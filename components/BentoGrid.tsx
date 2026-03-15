@@ -4,6 +4,7 @@ import { TrendingUp, Zap, Globe, ShieldCheck } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { cn } from '../utils/cn';
+import BreathingBlob from './BreathingBlob';
 
 // --- Micro-Interaction Components ---
 
@@ -44,14 +45,14 @@ const RoiGraph = () => {
        <svg viewBox="0 0 100 40" className="w-full h-full preserve-3d">
          <defs>
            <linearGradient id="gradientRoi" x1="0" y1="0" x2="0" y2="1">
-             <stop offset="0%" stopColor="#FF9933" stopOpacity="0.5"/>
-             <stop offset="100%" stopColor="#FF9933" stopOpacity="0"/>
+             <stop offset="0%" stopColor="#1E3A8A" stopOpacity="0.5"/>
+             <stop offset="100%" stopColor="#1E3A8A" stopOpacity="0"/>
            </linearGradient>
          </defs>
          <motion.path
             d="M0 40 Q 15 35 30 25 T 100 10"
             fill="none"
-            stroke="#FF9933"
+            stroke="#1E3A8A"
             strokeWidth="2" // Increased stroke width
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
@@ -81,7 +82,7 @@ const EfficiencyChart = () => {
             strokeWidth="3"
          />
          <motion.path
-            className="text-jumbo-green" // Used darker green for better contrast on white
+            className="text-jumbo-blue" // Used darker blue for better contrast on white
             d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
             fill="none"
             stroke="currentColor"
@@ -104,7 +105,7 @@ const CostBarChart = () => {
       {bars.map((height, i) => (
         <motion.div
           key={i}
-          className="w-full bg-jumbo-saffron rounded-t-sm"
+          className="w-full bg-jumbo-blue rounded-t-sm"
           initial={{ height: 0 }}
           whileInView={{ height: `${height * 60}%` }}
           transition={{ duration: 0.8, delay: i * 0.1 }}
@@ -123,7 +124,7 @@ const cardData = [
     description: "Average return on investment within the first 12 months.",
     icon: TrendingUp,
     colSpan: "col-span-1 md:col-span-2",
-    accent: "text-jumbo-saffron",
+    accent: "text-jumbo-blue",
     visual: <RoiGraph />
   },
   {
@@ -132,7 +133,7 @@ const cardData = [
     description: "Task automation accuracy across all deployed agents.",
     icon: Zap,
     colSpan: "col-span-1",
-    accent: "text-jumbo-green", // Changed to darker green
+    accent: "text-jumbo-blue", // Changed to darker blue
     visual: <EfficiencyChart />
   },
   {
@@ -141,7 +142,7 @@ const cardData = [
     description: "Autonomous operations running in 12 timezones simultaneously.",
     icon: Globe,
     colSpan: "col-span-1",
-    accent: "text-blue-600", // Darker blue
+    accent: "text-jumbo-blue", // Darker blue
     visual: <GlobeVisual />
   },
   {
@@ -150,7 +151,7 @@ const cardData = [
     description: "Operational overhead reduction in Q1 2024.",
     icon: ShieldCheck,
     colSpan: "col-span-1 md:col-span-2",
-    accent: "text-jumbo-saffron",
+    accent: "text-jumbo-blue",
     visual: <CostBarChart />
   }
 ];
@@ -198,36 +199,41 @@ const SpotlightCard: React.FC<{ children: React.ReactNode; className?: string; v
 
 const BentoGrid: React.FC = () => {
   return (
-    <section id="expertise" className="py-32 px-4 md:px-8 max-w-7xl mx-auto bg-jumbo-offWhite">
-      <div className="mb-20">
-        <h2 className="text-4xl md:text-6xl font-bold text-jumbo-black mb-6 tracking-tight">
-          Measurable <br/> Impact.
-        </h2>
-        <div className="w-20 h-1 bg-jumbo-saffron rounded-full" />
-      </div>
+    <section id="expertise" className="relative py-32 bg-jumbo-offWhite overflow-hidden">
+      <BreathingBlob className="w-[40rem] h-[40rem] -top-40 -left-20" delay={0} />
+      <BreathingBlob className="w-[35rem] h-[35rem] bottom-10 -right-20" delay={2} />
+      
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-jumbo-black mb-6 tracking-tight">
+            Measurable <br/> Impact.
+          </h2>
+          <div className="w-20 h-1 bg-jumbo-blue rounded-full" />
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[320px]">
-        {cardData.map((card, idx) => (
-          <SpotlightCard key={idx} className={cn("p-8 md:p-10", card.colSpan)} visual={card.visual}>
-            <div className="mb-4">
-              <div className="w-12 h-12 rounded-full bg-gray-100/80 backdrop-blur-sm flex items-center justify-center mb-6">
-                <card.icon className="w-6 h-6 text-gray-700" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[320px]">
+          {cardData.map((card, idx) => (
+            <SpotlightCard key={idx} className={cn("p-8 md:p-10", card.colSpan)} visual={card.visual}>
+              <div className="mb-4">
+                <div className="w-12 h-12 rounded-full bg-gray-100/80 backdrop-blur-sm flex items-center justify-center mb-6">
+                  <card.icon className="w-6 h-6 text-gray-700" />
+                </div>
+                <h3 className="text-gray-500 font-medium text-sm uppercase tracking-wider">{card.title}</h3>
               </div>
-              <h3 className="text-gray-500 font-medium text-sm uppercase tracking-wider">{card.title}</h3>
-            </div>
-            
-            <div>
-              <motion.div 
-                className={cn("text-6xl md:text-7xl font-bold mb-4 tracking-tighter", card.accent)}
-                whileHover={{ scale: 1.05, x: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {card.value}
-              </motion.div>
-              <p className="text-gray-600 leading-relaxed font-light max-w-xs">{card.description}</p>
-            </div>
-          </SpotlightCard>
-        ))}
+              
+              <div>
+                <motion.div 
+                  className={cn("text-6xl md:text-7xl font-bold mb-4 tracking-tighter", card.accent)}
+                  whileHover={{ scale: 1.05, x: 10 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {card.value}
+                </motion.div>
+                <p className="text-gray-600 leading-relaxed font-light max-w-xs">{card.description}</p>
+              </div>
+            </SpotlightCard>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import BreathingBlob from './BreathingBlob';
 
 const testimonials = [
   {
@@ -26,12 +27,15 @@ const testimonials = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-32 bg-white overflow-hidden border-t border-gray-100">
-      <div className="mb-16 px-8 max-w-7xl mx-auto">
-        <h3 className="text-sm font-bold text-jumbo-saffron uppercase tracking-widest mb-2">Trusted By</h3>
+    <section id="testimonials" className="relative py-32 bg-white overflow-hidden border-t border-gray-100">
+      <BreathingBlob className="w-[35rem] h-[35rem] top-10 -right-20" delay={1} />
+      <BreathingBlob className="w-[45rem] h-[45rem] bottom-0 -left-20" delay={3} />
+
+      <div className="relative z-10 mb-16 px-8 max-w-7xl mx-auto">
+        <h3 className="text-sm font-bold text-jumbo-blue uppercase tracking-widest mb-2">Trusted By</h3>
       </div>
 
-      <div className="relative w-full flex overflow-hidden group">
+      <div className="relative z-10 w-full flex overflow-hidden group">
         <div className="flex animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] w-max">
           {[...testimonials, ...testimonials, ...testimonials].map((item, idx) => (
             <motion.div 

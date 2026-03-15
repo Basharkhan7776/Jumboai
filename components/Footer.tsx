@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
       {/* Tricolor Breathing Line */}
       <div className="absolute bottom-0 left-0 w-full h-2">
-        <div className="w-full h-full bg-gradient-to-r from-jumbo-saffron via-white to-jumbo-greenNeon opacity-80 animate-pulse-slow blur-sm" />
+        <div className="w-full h-full bg-gradient-to-r from-jumbo-blue via-white to-jumbo-blue opacity-80 animate-pulse-slow blur-sm" />
       </div>
     </footer>
   );

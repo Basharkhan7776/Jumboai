@@ -57,7 +57,7 @@ const MagneticButton: React.FC<MagneticButtonProps> = ({
       {/* Ripple Effect Container */}
       {variant === 'primary' && (
         <span className="absolute inset-0 z-0 overflow-hidden rounded-full">
-           <span className="absolute top-1/2 left-0 w-[200%] h-[200%] -translate-y-1/2 -translate-x-full bg-gradient-to-r from-transparent via-jumbo-saffron/30 to-transparent group-hover:animate-[shimmer_1s_infinite]" />
+           <span className="absolute top-1/2 left-0 w-[200%] h-[200%] -translate-y-1/2 -translate-x-full bg-gradient-to-r from-transparent via-jumbo-blue/30 to-transparent group-hover:animate-[shimmer_1s_infinite]" />
         </span>
       )}
     </motion.button>

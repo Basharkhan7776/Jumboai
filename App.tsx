@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BentoGrid from './components/BentoGrid';
+import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -31,13 +32,14 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-jumbo-offWhite text-jumbo-black selection:bg-jumbo-saffron selection:text-white">
+    <div className="relative min-h-screen bg-jumbo-offWhite text-jumbo-black selection:bg-jumbo-blue selection:text-white">
       <CustomCursor />
       <Navbar />
       
       <main>
         <Hero />
         <BentoGrid />
+        <Projects />
         <Testimonials />
         <ContactForm />
       </main>
